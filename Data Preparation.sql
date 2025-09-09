@@ -1,7 +1,3 @@
-  
-PRE CLEANING
-
-
 /* 1. Combining the data was necessary to avoid doing the analysis on each of the datasets from the last year */
 CREATE TABLE Cyclistic.Cyclistic_Combined_Table as ( 
 SELECT * FROM `plated-dryad-448619-k8.Cyclistic.Jan_2024` UNION ALL 
