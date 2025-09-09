@@ -1,4 +1,4 @@
-/*There are 211 duplicate rows */
+/*There are 211 duplicate rows that need to be removed */
 SELECT ride_id,start_station_name,end_station_name, COUNT(*) 
 FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`
 GROUP BY ride_id,start_station_name,end_station_name
@@ -15,6 +15,8 @@ FROM (
 )
 WHERE row_number = 1
 /* After removing the duplicate rows, 5,860,357 rows remained out of the original 5,860,568 */
+
+
 
 
 
