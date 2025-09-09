@@ -17,7 +17,7 @@ SELECT * FROM `plated-dryad-448619-k8.Cyclistic.Dec_24` ) ;
 /* 2. Confirm the types of members */
 SELECT DISTINCT member_casual
 FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`
-/*There are two member types. Casual and Member*/ 
+/* Casuals and Members are the two member types */ 
 
 
 /* 3.Find the rideable types */
