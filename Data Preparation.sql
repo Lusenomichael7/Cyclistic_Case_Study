@@ -26,7 +26,7 @@ FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`
 /* There are three rideable_types:classic_bikes, electric_bikes and electric_scooters */
 
 
-/* 4. ride_id is a primary key we need to check for consistencies in length */
+/* 4. ride_id is a primary key we need to check for duplicate rows and inconsistencies in length  */
 SELECT LENGTH(ride_id), count(*)
 FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`
 GROUP BY LENGTH(ride_id);
@@ -34,7 +34,7 @@ GROUP BY LENGTH(ride_id);
 SELECT COUNT (DISTINCT ride_id)
 FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`;
 /* Each ride_id string is 16 digits */
-/* There are 5,860,568 ride IDs in total, of which 5,860,357 are unique meaning 211 are duplicates */
+/* There are 5,860,568 ride IDs in total, 5,860,357 are unique values and 211 rows are duplicates */
 
 /* 5. We need to find naming inconsistencies  */
 
