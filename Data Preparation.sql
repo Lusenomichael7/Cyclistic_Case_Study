@@ -36,17 +36,7 @@ FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`;
 /* Each ride_id string is 16 digits */
 /* There are 5,860,568 ride IDs in total, of which 5,860,357 are unique meaning 211 are duplicates */
 
-
-/* 5. We only want the rows where the length of the ride was longer than one minute,
-but shorter than one day */
-SELECT *
-FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table` 
-WHERE TIMESTAMP_DIFF(ended_at, started_at, MINUTE) < 1 OR
-TIMESTAMP_DIFF(ended_at, started_at, MINUTE) > 1440;
-/*There are 139124 rides below a minute and more than a day long these will need to be cleaned later*/
-
-
-/* 6. We need to find naming inconsistencies  */
+/* 5. We need to find naming inconsistencies  */
 
 SELECT start_station_name, count(*)
 FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`
@@ -84,7 +74,7 @@ FROM
 /*There are the same number of null ids as there are null names for both start and end stations. Meaning all rows with no names have no IDs*/
 
 
-/* 7. Next we need to check for nulls in the latitude and longitude columns*/
+/* 6. Next we need to check for nulls in the latitude and longitude columns*/
 
 SELECT count(*) as lat_lng
 FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`
@@ -103,6 +93,13 @@ FROM
   `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table`;
 /*The query results show that there are no NULL values in start_lat and start_lng. However, end_lat and end_lng contain all the 7232 NULL values*/
  
+/* 7 . We only want the rows where the length of the ride was longer than one minute,
+but shorter than one day */
+SELECT *
+FROM `plated-dryad-448619-k8.Cyclistic.Cyclistic_Combined_Table` 
+WHERE TIMESTAMP_DIFF(ended_at, started_at, MINUTE) < 1 OR
+TIMESTAMP_DIFF(ended_at, started_at, MINUTE) > 1440;
+/*There are 139124 rides below a minute and more than a day long these will need to be cleaned later*/
 
 
 
